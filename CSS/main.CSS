@@ -222,8 +222,6 @@ header .under .gnb-link::after {
   bottom: -1px;
   left: 0;
   height: 3px;
-  background-color: #00A1E9;
-  transform: scaleX(0);
   transition: transform 0.2s ease;
 }
 
