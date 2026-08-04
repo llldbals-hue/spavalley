@@ -1,19 +1,5 @@
 @font-face {
   font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
-  font-weight: 100;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
-  font-weight: 200;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Pretendard';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
   font-weight: 300;
   font-display: swap;
@@ -95,7 +81,7 @@ header {
   z-index: 1000;
   width: 100%;
   height: 129px;
-  padding: 0 16px;
+  padding: 0 32px;
   background-color: #fff;
 }
 
@@ -149,10 +135,8 @@ header .top .login a {
   margin-right: 24px;
 }
 
-header .top .login .bi {
-  font-size: 20px;
+header .top .login .icon {
   margin-right: 12px;
-  text-align: center;
 }
 
 select {
@@ -198,7 +182,8 @@ header .under .gnb {
 
 header .under .gnb-list {
   display: grid;
-  grid-template-columns: repeat(4, 130px);
+  gap: clamp(32px, 2vw, 48px);
+  grid-template-columns: repeat(4, 1fr);
   height: 100%;
   font-weight: 600;
   font-size: 20px;
@@ -212,7 +197,6 @@ header .under .gnb-list > li {
 }
 
 header .under .gnb-link {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,24 +205,9 @@ header .under .gnb-link {
   transition: color 0.2s ease;
 }
 
-header .under .gnb-link::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: -1px;
-  left: 0;
-  height: 3px;
-  transition: transform 0.2s ease;
-}
-
 header .under .gnb-list > li:hover .gnb-link,
 header .under .gnb-list > li:focus-within .gnb-link {
   color: #00A1E9;
-}
-
-header .under .gnb-list > li:hover .gnb-link::after,
-header .under .gnb-list > li:focus-within .gnb-link::after {
-  transform: scaleX(1);
 }
 
 header .under .submenu {
@@ -248,7 +217,6 @@ header .under .submenu {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 0;
   width: 100%;
   padding-top: 22px;
   font-size: 16px;
@@ -281,21 +249,21 @@ header .under .submenu a:focus-visible {
   outline: none;
 }
 
-header .under .btn_box button {
-  font-size: 18px;
-  font-weight: 650;
-  padding: 10px 28px;
-  border: 0;
-  background-color: transparent;
-  border-radius: 100px;
-  cursor: pointer;
-  font-family: Pretendard;
+header .under .btn_box{
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 header .under .btn_box .Smart {
+  width: 100%;
   background: linear-gradient(to right, #005BAC, #009fe9d8);
   color: #F8F8F8;
-  margin-right: 12px;
+  font-size: 18px;
+  font-weight: 650;
+  padding: 10px 28px;
+  border-radius: 100px;
+  white-space: nowrap;
 }
 
 header .under .btn_box .Smart:hover {
@@ -303,8 +271,14 @@ header .under .btn_box .Smart:hover {
 }
 
 header .under .btn_box .organization {
+  width: 100%;
   border: solid 2px #00A1E9;
   color: #333;
+  font-size: 18px;
+  font-weight: 650;
+  padding: 10px 28px;
+  border-radius: 100px;
+  white-space: nowrap;
 }
 
 header .under .btn_box .menu_btn {
@@ -344,7 +318,8 @@ main .main_i .time .time_l {
 main .main_i .time .time_r {
   display: flex;
   justify-content: space-between;
-  flex-grow: calc(1);
+  align-items: center;
+  flex-grow: 1;
   padding: 28px 40px;
   font-size: 20px;
   font-weight: bold;
@@ -357,14 +332,10 @@ main .main_i .time .time_r .text {
   gap: 28px;
 }
 
-main .main_i .time .time_r .icon {
-  -webkit-text-stroke: 1.5px currentColor;
-}
-
 .fnav {
   width: 100%;
   margin: clamp(60px, 10vw, 120px) 0;
-  padding: 0 16px;
+  padding: 0 32px;
 }
 
 .fnav .fnav_i {
@@ -398,7 +369,6 @@ main .main_i .time .time_r .icon {
 }
 
 .fnav .fnav_i .allbox .box .imgbox img {
-  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -414,7 +384,7 @@ main .main_i .time .time_r .icon {
 
 .info {
   width: 100%;
-  padding: clamp(60px, 10vw, 120px) 16px;
+  padding: clamp(60px, 10vw, 120px) 32px;
 }
 
 .info .text {
@@ -448,7 +418,7 @@ main .main_i .time .time_r .icon {
 .events {
   width: 100%;
   background-color: #2483c6;
-  padding: clamp(100px, 10vw, 120px) 16px;
+  padding: clamp(100px, 10vw, 120px) 32px;
 }
 
 .events .events_i {
@@ -469,23 +439,22 @@ main .main_i .time .time_r .icon {
 
 .events .events_i .but {
   width: fit-content;
-  height: fit-content;
-  margin: auto;
-  margin-top: 30px;
-  margin-bottom: 48px;
+  margin: 30px auto 48px;
   font-size: clamp(16px, 4vw, 20px);
   font-weight: 600;
   color: #F8F8F8;
   display: flex;
   gap: 16px;
+  align-items: center;
   padding: 15px 40px;
   border: 1px solid #F8F8F8;
   border-radius: 100px;
 }
 
-.events .events_i .but i {
-  -webkit-text-stroke: 1px currentColor;
+.events .events_i .but svg{
+  font-size: 16px;
 }
+
 
 .events .events_i .but:hover {
   background-color: #f8f8f8;
@@ -542,7 +511,7 @@ main .main_i .time .time_r .icon {
 }
 
 .events .events_i .event_box .e_Title .text p {
-  margin-bottom: 4;
+  margin-bottom: 4px;
 }
 
 .events .events_i .event_box .imgbox {
@@ -561,11 +530,10 @@ main .main_i .time .time_r .icon {
   object-position: center;
 }
 
-
 .fun {
   width: 100%;
   background-color: #DBECE8;
-  padding: clamp(100px, 10vw, 120px) 16px;
+  padding: clamp(100px, 10vw, 120px) 32px;
 }
 
 .fun .fun_i {
@@ -582,21 +550,19 @@ main .main_i .time .time_r .icon {
 
 .fun .fun_i .but {
   width: fit-content;
-  height: fit-content;
-  margin: auto;
-  margin-top: 30px;
-  margin-bottom: 48px;
+  margin: 30px auto 48px;
   font-size: clamp(16px, 4vw, 20px);
   font-weight: 600;
   display: flex;
+  align-items: center;
   gap: 16px;
   padding: 15px 40px;
   border: 1px solid #333;
   border-radius: 100px;
 }
 
-.fun .fun_i .but i {
-  -webkit-text-stroke: 1.5px currentColor;
+.fun .fun_i .but .icon svg{
+  font-size: 16px;
 }
 
 .fun .fun_i .but:hover {
@@ -636,7 +602,7 @@ main .main_i .time .time_r .icon {
 .notice {
   width: 100%;
   margin: clamp(60px, 10vw, 120px) 0;
-  padding: 0 16px;
+  padding: 0 32px;
 }
 
 .notice .notice_i {
@@ -651,10 +617,10 @@ main .main_i .time .time_r .icon {
   margin-bottom: 64px;
 }
 
-.notice .notice_i .Title i {
+.notice .notice_i .Title .icon svg{
   font-size: 24px;
-  -webkit-text-stroke: 1.5px currentColor;
 }
+
 
 .notice .notice_i .notice_allbox {
   display: grid;
@@ -662,20 +628,14 @@ main .main_i .time .time_r .icon {
   gap: 16px;
 }
 
-
 .notice .notice_i .notice_allbox .noticebox {
   width: 100%;
   min-width: 0;
   aspect-ratio: 432 / 126;
-  /* padding: 36px 24px; */
   background-color: #F8F8F8;
   border-radius: 16px;
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.16);
   overflow: hidden;
-}
-
-.notice .notice_i .notice_allbox .noticebox>a {
-  width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -704,7 +664,6 @@ main .main_i .time .time_r .icon {
 }
 
 .notice .notice_i .notice_allbox .noticebox .icon {
-  -webkit-text-stroke: 1.5px currentColor;
   flex-shrink: 0;
   align-self: center;
   margin-right: clamp(16px, 1.5vw, 24px);
@@ -713,7 +672,7 @@ main .main_i .time .time_r .icon {
 .family {
   width: 100%;
   background-color: #53B3AA;
-  padding: clamp(100px, 10vw, 120px) 16px;
+  padding: clamp(100px, 10vw, 120px) 32px;
 }
 
 .family .family_i {
@@ -766,12 +725,7 @@ main .main_i .time .time_r .icon {
 }
 
 .family .family_i .familycard .card:last-child .imgbox {
-  width: 100%;
-  aspect-ratio: 432 / 288;
   background-image: url(../img/main/hoteldeforet.jpg);
-  background-position: center;
-  background-size: cover;
-  border-radius: 32px 32px 0 0;
 }
 
 .family .family_i .familycard .card .text {
@@ -811,8 +765,7 @@ main .main_i .time .time_r .icon {
 footer {
   width: 100%;
   background-color: #F8F8F8;
-  padding: clamp(100px, 10vw, 120px) 16px;
-  align-content: center;
+  padding: clamp(100px, 10vw, 120px) 32px;
 }
 
 footer .footer_i {
@@ -882,9 +835,13 @@ footer .footer_i .footer-info p {
 
 footer .footer_i .icon {
   display: flex;
-  gap: 18px;
+  gap: 16px;
   flex-shrink: 0;
   align-self: flex-start;
+}
+
+footer .footer_i .icon svg{
+  font-size: 32px;
 }
 
 footer .footer_i .icon a {
@@ -894,9 +851,12 @@ footer .footer_i .icon a {
 
 @media screen and (max-width:1024px) {
 
+  header::after {
+    display: none;
+  }
+
   header {
     height: 80px;
-    padding: 0 32px;
   }
 
   header .header_i {
@@ -911,9 +871,6 @@ footer .footer_i .icon a {
   header .header_i .under {
     height: 100%;
     margin: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 
   header .header_i .under nav {
@@ -930,18 +887,8 @@ footer .footer_i .icon a {
     display: none;
   }
 
-  header .header_i .under .btn_box .Smart {
-    margin: 0;
-  }
-
   header .header_i .under .btn_box .menu_btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-  }
-
-  header .header_i .under .btn_box .menu_btn i {
+    display: block;
     font-size: 34px;
   }
 
@@ -1016,14 +963,12 @@ footer .footer_i .icon a {
     gap: 34px 20px;
   }
 
-  /* 왼쪽 위 로고 */
   footer .footer-logo {
     grid-column: 1;
     grid-row: 1;
     justify-self: start;
   }
 
-  /* 오른쪽 위 SNS */
   footer .icon {
     grid-column: 2;
     grid-row: 1;
@@ -1035,7 +980,7 @@ footer .footer_i .icon a {
   }
 }
 
-@media screen and (max-width:360px) {
+@media screen and (max-width:480px) {
   header {
     width: 100%;
     height: 66px;
@@ -1059,12 +1004,13 @@ footer .footer_i .icon a {
     font-weight: 500;
   }
 
+  header .header_i .under .btn_box .menu_btn{
+    font-size: 16px;
+  }
+
   main .bg {
-    width: 100%;
     height: 281px;
-    background-image: url(img/m_bg.png);
-    background-size: cover;
-    background-position: center;
+    background-image: url(../img/main/m_bg.png);
   }
 
   main .main_i .time .time_l {
@@ -1081,7 +1027,6 @@ footer .footer_i .icon a {
 
   main .main_i .time .time_r {
     padding: 16px;
-    align-items: center;
   }
 
   main .main_i .time .time_r .icon {
@@ -1111,12 +1056,7 @@ footer .footer_i .icon a {
     display: flex;
     gap: 16px;
     overflow-x: auto;
-    -ms-overflow-style: none;
     scrollbar-width: none;
-  }
-
-  .fnav .fnav_i .allbox::-webkit-scrollbar {
-    display: none;
   }
 
   .fnav .fnav_i .allbox .box {
@@ -1230,7 +1170,6 @@ footer .footer_i .icon a {
   }
 
   .family .family_i {
-    display: flex;
     flex-direction: column;
     gap: 32px;
   }
