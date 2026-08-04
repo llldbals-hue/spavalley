@@ -336,6 +336,7 @@ main .main_i .time .time_r .text {
   width: 100%;
   margin: clamp(60px, 10vw, 120px) 0;
   padding: 0 32px;
+  overflow: hidden;
 }
 
 .fnav .fnav_i {
@@ -913,6 +914,11 @@ footer .footer_i .icon a {
     padding: 0 32px;
   }
 
+  .fnav .fnav_i .allbox {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
   .events {
     padding: clamp(60px, 10vw, 100px) 32px;
   }
@@ -1017,7 +1023,7 @@ footer .footer_i .icon a {
     padding: 28px 16px;
   }
 
-  main .main_i .time .time_l i {
+  main .main_i .time .time_l svg {
     display: none;
   }
 
@@ -1049,7 +1055,6 @@ footer .footer_i .icon a {
     padding-left: 16px;
     padding-right: 0;
     margin: 60px 0;
-    overflow: hidden;
   }
 
   .fnav .fnav_i .allbox {
