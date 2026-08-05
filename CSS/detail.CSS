@@ -1,26 +1,5 @@
 @font-face {
   font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
-  font-weight: 100;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
-  font-weight: 200;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
-  font-weight: 300;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Pretendard';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
@@ -91,10 +70,33 @@ h2 {
 }
 
 header {
+  position: relative;
+  z-index: 1000;
   width: 100%;
   height: 129px;
   padding: 0 32px;
+  background-color: #fff;
   border-bottom: 1px solid #ddd;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  top: 129px;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 0;
+  background-color: #fff;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0);
+  transition: height 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+header:has(.gnb:hover)::after,
+header:has(.gnb:focus-within)::after {
+  height: 250px;
+  border-top-color: #eee;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 header .header_i {
@@ -124,25 +126,30 @@ header .top .login {
 header .top .login a {
   color: #333;
   margin-right: 24px;
+  margin-top: 2px;
 }
 
-header .top .login .bi {
-  font-size: 20px;
+header .top .login .icon {
   margin-right: 12px;
-  text-align: center;
 }
 
 select {
   width: 100%;
   height: 100%;
   font-size: 16px;
-  border: 0;
+  border: none;
+  outline: none;
   padding-right: 12px;
   background-color: transparent;
   cursor: pointer;
   color: #333;
   font-family: Pretendard;
   font-weight: 700;
+}
+
+select option{
+  font-family: Pretendard;
+  font-size: 16px;
 }
 
 header .under {
@@ -169,7 +176,8 @@ header .under .gnb {
 
 header .under .gnb-list {
   display: grid;
-  grid-template-columns: repeat(4, 130px);
+  gap: clamp(32px, 2vw, 48px);
+  grid-template-columns: repeat(4, 1fr);
   height: 100%;
   font-weight: 600;
   font-size: 20px;
@@ -183,7 +191,6 @@ header .under .gnb-list > li {
 }
 
 header .under .gnb-link {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -192,26 +199,9 @@ header .under .gnb-link {
   transition: color 0.2s ease;
 }
 
-header .under .gnb-link::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: -1px;
-  left: 0;
-  height: 3px;
-  background-color: #00A1E9;
-  transform: scaleX(0);
-  transition: transform 0.2s ease;
-}
-
 header .under .gnb-list > li:hover .gnb-link,
 header .under .gnb-list > li:focus-within .gnb-link {
   color: #00A1E9;
-}
-
-header .under .gnb-list > li:hover .gnb-link::after,
-header .under .gnb-list > li:focus-within .gnb-link::after {
-  transform: scaleX(1);
 }
 
 header .under .submenu {
@@ -221,7 +211,6 @@ header .under .submenu {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 0;
   width: 100%;
   padding-top: 22px;
   font-size: 16px;
@@ -253,21 +242,22 @@ header .under .submenu a:focus-visible {
   color: #00A1E9;
   outline: none;
 }
-header .under .btn_box button {
-  font-size: 18px;
-  font-weight: 650;
-  padding: 10px 28px;
-  border: 0;
-  background-color: transparent;
-  border-radius: 100px;
-  cursor: pointer;
-  font-family: Pretendard;
+
+header .under .btn_box{
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 header .under .btn_box .Smart {
+  width: 100%;
   background: linear-gradient(to right, #005BAC, #009fe9d8);
   color: #F8F8F8;
-  margin-right: 12px;
+  font-size: 18px;
+  font-weight: 650;
+  padding: 10px 28px;
+  border-radius: 100px;
+  white-space: nowrap;
 }
 
 header .under .btn_box .Smart:hover {
@@ -275,8 +265,14 @@ header .under .btn_box .Smart:hover {
 }
 
 header .under .btn_box .organization {
+  width: 100%;
   border: solid 2px #00A1E9;
   color: #333;
+  font-size: 18px;
+  font-weight: 650;
+  padding: 10px 28px;
+  border-radius: 100px;
+  white-space: nowrap;
 }
 
 header .under .btn_box .menu_btn {
@@ -285,16 +281,15 @@ header .under .btn_box .menu_btn {
 
 main {
   width: 100%;
-  padding: 0 16px;
+  padding: 0 32px;
 }
 
 main .main_i {
   max-width: 1328px;
-  margin: auto;
-  margin-top: 56px;
+  margin: clamp(40px, 5vw, 56px) auto 0;
 }
 
-main .main_i > nav {
+main .main_i nav {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -303,24 +298,7 @@ main .main_i > nav {
   font-weight: 500;
 }
 
-main .main_i > nav a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #666;
-}
-
-main .main_i > nav i {
-  font-size: 18px;
-  -webkit-text-stroke: 1px currentColor;
-}
-
-main .main_i > nav .bi-chevron-right {
-  font-size: 12px;
-  color: #888;
-}
-
-main .main_i > nav p:last-child {
+main .main_i nav p:last-child {
   color: #333;
 }
 
@@ -355,8 +333,7 @@ main .main_i .text p {
 
 main .main_i .icon {
   width: fit-content;
-  margin: auto;
-  margin-top: 32px;
+  margin: 32px auto 0;
   display: flex;
   justify-content: center;
   gap: 8px;
@@ -368,7 +345,6 @@ main .main_i .icon {
 main .main_i .icon i {
   color: #ee1c00;
   font-size: 18px;
-  -webkit-text-stroke: 1px currentColor;
 }
 
 main .main_i .info {
@@ -395,7 +371,6 @@ main .main_i .info .time .time_title,
 main .main_i .info .tall .tall_title,
 main .main_i .info .usage_info .usage_info_title {
   flex: 0 0 88px;
-  box-sizing: border-box;
   text-align: center;
   white-space: nowrap;
   font-weight: 600;
@@ -429,7 +404,7 @@ main .main_i .info .info_l .tall .tall_title {
 
 main .main_i .info .info_l .usage_info {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   gap: 16px;
 }
 
@@ -509,7 +484,6 @@ main .main_i .info .info_l .usage_info ul {
 
 .caution .caution_i .caution_tatle i {
   font-size: 24px;
-  -webkit-text-stroke: 1px currentColor;
 }
 
 .caution .caution_i .caution_tatle p {
@@ -550,7 +524,6 @@ main .main_i .info .info_l .usage_info ul {
 .guide_map .guide_map_i .guide_map_img {
   position: relative;
   width: min(100%, 1156px);
-  height: auto;
   margin: auto;
   aspect-ratio: 1156 / 631;
   background-image: url(../img/detail/guide_map.png);
@@ -568,7 +541,6 @@ main .main_i .info .info_l .usage_info ul {
   font-size: clamp(24px, 3.34vw, 48px);
   line-height: 1;
   transform: translate(-50%, -100%);
-  flex-shrink: 0;
 }
 
 .guide_map .guide_map_i .inventory {
@@ -588,7 +560,6 @@ footer {
   width: 100%;
   background-color: #F8F8F8;
   padding: clamp(100px, 10vw, 120px) 16px;
-  align-content: center;
 }
 
 footer .footer_i {
@@ -670,9 +641,12 @@ footer .footer_i .icon a {
 
 @media screen and (max-width:1024px) {
 
+  header::after {
+    display: none;
+  }
+
   header {
     height: 80px;
-    padding: 0 32px;
   }
 
   header .header_i {
@@ -687,9 +661,6 @@ footer .footer_i .icon a {
   header .header_i .under {
     height: 100%;
     margin: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 
   header .header_i .under nav {
@@ -711,18 +682,8 @@ footer .footer_i .icon a {
   }
 
   header .header_i .under .btn_box .menu_btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-  }
-
-  header .header_i .under .btn_box .menu_btn i {
-    font-size: 34px;
-  }
-
-  main {
-    padding: 0 32px;
+    display: block;
+    font-size: 32px;
   }
 
   main .main_i nav {
@@ -805,9 +766,8 @@ footer .footer_i .icon a {
   }
 }
 
-@media screen and (max-width:360px) {
+@media screen and (max-width:480px) {
   header {
-    width: 100%;
     height: 66px;
     padding: 0 16px;
   }
@@ -818,8 +778,6 @@ footer .footer_i .icon a {
   }
 
   header .header_i .under .btn_box {
-    display: flex;
-    align-items: center;
     gap: 8px;
   }
 
@@ -830,7 +788,6 @@ footer .footer_i .icon a {
   }
 
   main {
-    width: 100%;
     padding: 0 16px;
   }
 
@@ -891,7 +848,7 @@ footer .footer_i .icon a {
   }
 
   main .main_i .info .info_l .usage_info{
-    align-items: start;
+    align-items: flex-start;
     gap: 8px;
   }
 
@@ -963,10 +920,6 @@ footer .footer_i .icon a {
 
   .caution .caution_i{
     padding: 20px 24px;
-  }
-
-  .caution .caution_i .caution_tatle{
-    font-size: 22px;
   }
 
   .caution .caution_i .caution_text ul li{

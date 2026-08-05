@@ -133,6 +133,7 @@ header .top .login {
 header .top .login a {
   color: #333;
   margin-right: 24px;
+  margin-top: 2px;
 }
 
 header .top .login .icon {
@@ -305,7 +306,7 @@ main .main_i .time {
 
 main .main_i .time .time_l {
   display: flex;
-  gap: 16px;
+  gap: 8px;
   padding: 25px 36.5px;
   align-items: center;
   background-color: #00A1E9;
@@ -394,7 +395,7 @@ main .main_i .time .time_r .text {
   text-align: center;
 }
 
-.info .text h3 {
+.info .text b {
   font-size: 32px;
   color: #005BAC;
 }
@@ -696,9 +697,9 @@ main .main_i .time .time_r .text {
   line-height: 130%;
 }
 
-.family .family_i .title h1 {
+.family .family_i .title h3 {
   font-size: clamp(32px, 4vw, 56px);
-  font-weight: 900;
+  font-weight: 800;
   margin-top: 20px;
 }
 
@@ -1011,7 +1012,7 @@ footer .footer_i .icon a {
   }
 
   header .header_i .under .btn_box .menu_btn{
-    font-size: 16px;
+    font-size: 24px;
   }
 
   main .bg {
