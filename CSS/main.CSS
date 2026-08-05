@@ -40,13 +40,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
-  font-weight: 900;
-  font-display: swap;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -77,7 +70,8 @@ h2 {
 }
 
 header {
-  position: relative;
+  position: sticky;
+  top: -49px;
   z-index: 1000;
   width: 100%;
   height: 129px;
@@ -106,7 +100,7 @@ header:has(.gnb:focus-within)::after {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
-header .header_i {
+header .top-wrap {
   max-width: 1328px;
   margin: auto;
 }
@@ -120,6 +114,7 @@ header .top {
 
 header .top .Family {
   display: flex;
+  align-items: center;
   gap: 8px;
   color: #666;
 }
@@ -159,11 +154,18 @@ select option{
   font-size: 16px;
 }
 
+header .under-wrap{
+  background-color: #fff;
+}
+
 header .under {
+  max-width: 1328px;
+  height: 80px;
+  margin: auto;
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
 }
 
 header .under .logo {
@@ -300,7 +302,6 @@ main .main_i {
 }
 
 main .main_i .time {
-  width: 100%;
   display: flex;
 }
 
@@ -325,7 +326,7 @@ main .main_i .time .time_r {
   font-size: 20px;
   font-weight: bold;
   background-color: #F8F8F8;
-  border-radius: 0 0 16px 0px;
+  border-radius: 0 0 16px 0;
 }
 
 main .main_i .time .time_r .text {
@@ -529,7 +530,6 @@ main .main_i .time .time_r .text {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: center;
 }
 
 .fun {
@@ -576,10 +576,6 @@ main .main_i .time .time_r .text {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
-}
-
-.fun .fun_i .fun_allbox .fun_box {
-  width: 100%;
 }
 
 .fun .fun_i .fun_allbox .fun_box .fun_img {
@@ -652,7 +648,6 @@ main .main_i .time .time_r .text {
 }
 
 .notice .notice_i .notice_allbox .noticebox .text b {
-  width: 100%;
   font-size: clamp(20px, 1.3vw, 22px);
   font-weight: 700;
   white-space: nowrap;
@@ -754,7 +749,6 @@ main .main_i .time .time_r .text {
   min-width: 0;
   font-size: clamp(12px, 1vw, 14px);
   white-space: nowrap;
-  flex-shrink: 1;
 }
 
 .family .family_i .familycard .card .text .cardtext {
@@ -803,7 +797,6 @@ footer .footer_i .footer-info .footer-menu a {
   color: #333;
   font-size: 14px;
   font-weight: 500;
-  text-decoration: none;
   position: relative;
 }
 
@@ -837,18 +830,14 @@ footer .footer_i .footer-info p {
 
 footer .footer_i .icon {
   display: flex;
-  gap: 16px;
+  gap: 8px;
   flex-shrink: 0;
   align-self: flex-start;
 }
 
 footer .footer_i .icon svg{
   font-size: 32px;
-}
-
-footer .footer_i .icon a {
   color: #888;
-  font-size: 30px;
 }
 
 @media screen and (max-width:1024px) {
@@ -858,38 +847,37 @@ footer .footer_i .icon a {
   }
 
   header {
+    top: 0;
     height: 80px;
   }
 
-  header .header_i {
-    max-width: none;
-    height: 100%;
-  }
-
-  header .header_i .top {
+  header .top-wrap {
     display: none;
   }
 
-  header .header_i .under {
+  header .under-wrap,
+  header .under {
     height: 100%;
     margin: 0;
   }
 
-  header .header_i .under nav {
+  header .under {
+    padding-top: 0;
+  }
+
+  header .under nav {
     display: none;
   }
 
-  header .header_i .under .btn_box {
-    display: flex;
-    align-items: center;
+  header .under .btn_box {
     gap: 20px;
   }
 
-  header .header_i .under .btn_box .organization {
+  header .under .btn_box .organization {
     display: none;
   }
 
-  header .header_i .under .btn_box .menu_btn {
+  header .under-wrap .under .btn_box .menu_btn {
     display: block;
     font-size: 32px;
   }
@@ -909,10 +897,6 @@ footer .footer_i .icon a {
 
   main .main_i .time .time_r .icon {
     padding-right: 12px;
-  }
-
-  .fnav {
-    padding: 0 32px;
   }
 
   .fnav .fnav_i .allbox {
@@ -944,10 +928,6 @@ footer .footer_i .icon a {
   .fun .fun_i .fun_allbox {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 40px;
-  }
-
-  .notice {
-    padding: 0 32px;
   }
 
   .family {
@@ -989,29 +969,26 @@ footer .footer_i .icon a {
 
 @media screen and (max-width:480px) {
   header {
-    width: 100%;
     height: 66px;
     padding: 0 16px;
   }
 
-  header .header_i .under .logo {
+  header .under-wrap .under .logo {
     width: 140px;
     height: 33px;
   }
 
-  header .header_i .under .btn_box {
-    display: flex;
-    align-items: center;
+  header .under-wrap .under .btn_box {
     gap: 8px;
   }
 
-  header .header_i .under .btn_box .Smart {
+  header .under-wrap .under .btn_box .Smart {
     padding: 4px 12px;
     font-size: 14px;
     font-weight: 500;
   }
 
-  header .header_i .under .btn_box .menu_btn{
+  header .under-wrap .under .btn_box .menu_btn{
     font-size: 24px;
   }
 
@@ -1083,7 +1060,7 @@ footer .footer_i .icon a {
     text-align: start;
   }
 
-  .info .text h3 {
+  .info .text b {
     font-size: 26px;
     font-weight: 600;
   }
@@ -1162,10 +1139,6 @@ footer .footer_i .icon a {
     font-size: 32px;
   }
 
-  .notice .notice_i .Title i {
-    font-size: 24px;
-  }
-
   .notice .notice_i .notice_allbox {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1189,7 +1162,7 @@ footer .footer_i .icon a {
     font-weight: 300;
   }
 
-  .family .family_i .title h1 {
+  .family .family_i .title h3 {
     margin-top: 12px;
   }
 
