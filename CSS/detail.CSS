@@ -481,7 +481,7 @@ main .main_i .info .info_l .usage_info ul {
 
 .caution {
   width: 100%;
-  padding: 0 16px;
+  padding: 0 32px;
 }
 
 .caution .caution_i {
@@ -523,7 +523,7 @@ main .main_i .info .info_l .usage_info ul {
 
 .guide_map {
   width: 100%;
-  padding: 0 16px;
+  padding: 0 32px;
   margin-bottom: clamp(100px, 10vw, 120px);
 }
 
@@ -576,7 +576,7 @@ main .main_i .info .info_l .usage_info ul {
 footer {
   width: 100%;
   background-color: #F8F8F8;
-  padding: clamp(100px, 10vw, 120px) 16px;
+  padding: clamp(100px, 10vw, 120px) 32px;
 }
 
 footer .footer_i {
@@ -739,10 +739,6 @@ footer .footer_i .icon svg{
   main .main_i .info .info_r .info_icon {
     gap: 36px;
     flex-wrap: wrap;
-  }
-
-  .caution {
-    padding: 0 32px;
   }
 
   .caution .caution_i {
