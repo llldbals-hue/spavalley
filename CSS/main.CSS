@@ -79,27 +79,6 @@ header {
   background-color: #fff;
 }
 
-header::after {
-  content: "";
-  position: absolute;
-  top: 129px;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 0;
-  background-color: #fff;
-  border-top: 1px solid transparent;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0);
-  transition: height 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-header:has(.gnb:hover)::after,
-header:has(.gnb:focus-within)::after {
-  height: 250px;
-  border-top-color: #eee;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-}
-
 header .top-wrap {
   max-width: 1328px;
   margin: auto;
@@ -225,17 +204,6 @@ header .under .submenu {
   font-size: 16px;
   font-weight: 500;
   text-align: center;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-8px);
-  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-}
-
-header .under .gnb:hover .submenu,
-header .under .gnb:focus-within .submenu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
 }
 
 header .under .submenu a {
@@ -706,17 +674,23 @@ main .main_i .time .time_r .text {
   flex: 1 1 892px;
   min-width: 0;
   display: flex;
+  align-items: stretch;
   gap: 28px;
 }
 
 .family .family_i .familycard .card {
   flex: 1 1 0;
   min-width: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
+  border-radius: 32px;
 }
 
 
 .family .family_i .familycard .card .imgbox {
+  flex-shrink: 0;
   width: 100%;
   aspect-ratio: 432 / 288;
   background-image: url(../img/main/naturepark.jpg);
@@ -730,6 +704,7 @@ main .main_i .time .time_r .text {
 }
 
 .family .family_i .familycard .card .text {
+  flex: 1;
   width: 100%;
   background-color: #F8F8F8;
   border-radius: 0 0 32px 32px;
@@ -846,10 +821,6 @@ footer .footer_i .icon svg {
 
 @media screen and (max-width:1024px) {
 
-  header::after {
-    display: none;
-  }
-
   header {
     top: 0;
     height: 80px;
@@ -918,10 +889,10 @@ footer .footer_i .icon svg {
 
   .events .events_i .events_allbox {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 40px;
+    gap: 40px
   }
 
-  .events .events_i .event_box .e_Title .text p {
+  .events .events_i .event_box .e_Title .text p{
     font-size: 22px;
   }
 
@@ -939,7 +910,26 @@ footer .footer_i .icon svg {
 
   .fun .fun_i .fun_allbox {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 40px;
+    gap: clamp(24px, 4vw, 40px);
+  }
+
+  .notice .notice_i .notice_allbox{
+    gap: 18px;
+  }
+
+  .notice .notice_i .notice_allbox .noticebox {
+    aspect-ratio: auto;
+    min-height: clamp(110px, 12vw, 126px);
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .notice .notice_i .notice_allbox .noticebox .text b {
+    display: block;
+    line-height: 1.3;
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 
   .family {
@@ -948,6 +938,10 @@ footer .footer_i .icon svg {
 
   .family .family_i {
     gap: 40px;
+  }
+
+  .family .family_i .familycard .card .text .cardtitle b {
+  font-size: clamp(20px, 2vw, 24px);
   }
 
   footer {
@@ -979,46 +973,10 @@ footer .footer_i .icon svg {
   }
 }
 
-@media screen and (max-width:480px) {
-  header {
-    height: 66px;
-    padding: 0 16px;
-  }
-
-  header .under-wrap .under .logo {
-    width: 140px;
-    height: 33px;
-  }
-
-  header .under-wrap .under .btn_box {
-    gap: 8px;
-  }
-
-  header .under-wrap .under .btn_box .Smart {
-    padding: 4px 12px;
-    font-size: 14px;
-    font-weight: 500;
-  }
-
-  header .under-wrap .under .btn_box .menu_btn {
-    font-size: 24px;
-  }
-
-  main .bg {
-    height: 281px;
-    background-image: url(../img/main/m_bg.png);
-  }
+@media screen and (max-width:768px) {
 
   main .main_i .time .time_l {
-    padding: 28px 16px;
-  }
-
-  main .main_i .time .time_l svg {
-    display: none;
-  }
-
-  main .main_i .time .time_l span {
-    font-size: 14px;
+    padding: 28px 32px;
   }
 
   main .main_i .time .time_r {
@@ -1026,125 +984,31 @@ footer .footer_i .icon svg {
   }
 
   main .main_i .time .time_r .icon {
-    padding: 0;
-    font-size: 16px;
+    padding-right: 16px;
   }
 
   main .main_i .time .time_r .text {
     flex-direction: column;
     gap: 8px;
     justify-content: center;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   main .main_i .time .time_r .text p {
     display: none;
   }
 
-  .fnav {
-    padding-left: 16px;
-    padding-right: 0;
-    margin: 60px 0;
+
+   .events .events_i .events_allbox {
+    gap: clamp(24px, 4vw, 40px);
   }
 
-  .fnav .fnav_i .allbox {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    scrollbar-width: none;
+  .events .events_i .event_box .e_Title .text p{
+    font-size: clamp(18px, 3vw, 22px);
   }
 
-  .fnav .fnav_i .allbox .box {
-    min-width: 120px;
-    min-height: 120px;
-  }
-
-  .fnav .fnav_i .allbox .box:last-child {
-    margin-right: 16px;
-  }
-
-  .fnav .fnav_i .allbox .box .imgbox {
-    width: 90px;
-    height: 90px;
-  }
-
-  .info .text {
-    text-align: start;
-  }
-
-  .info .text b {
-    font-size: 26px;
-    font-weight: 600;
-  }
-
-  .info .text h2 {
-    font-size: 32px;
-    margin: 16px 0;
-  }
-
-  .info .text p {
-    font-size: 14px;
-    line-height: 20px;
-  }
-
-  .events {
-    padding: 60px 16px;
-  }
-
-  .events .events_i .title {
-    width: 264px;
-    margin: auto;
-  }
-
-  .events .events_i .title P {
-    font-size: 20px;
-    font-weight: 500;
-  }
-
-  .events .events_i .title h2 {
-    font-size: 32px;
-  }
-
-  .events .events_i .but {
-    padding: 12px 24px;
-    margin: 32px auto;
-  }
-
-  .events .events_i .events_allbox {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .fun {
-    padding: 60px 16px;
-  }
-
-  .fun .fun_i .Title {
-    width: 264px;
-    margin: auto;
-  }
-
-  .fun .fun_i .Title P {
-    font-size: 20px;
-    font-weight: 500;
-  }
-
-  .fun .fun_i .Title h2 {
-    font-size: 32px;
-  }
-
-  .fun .fun_i .but {
-    padding: 12px 24px;
-    margin: 32px auto;
-  }
-
-  .fun .fun_i .fun_allbox {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .notice {
-    padding: 0 16px;
+  .events .events_i .event_box .e_Title .text span {
+    font-size: clamp(18px, 3vw, 22px);
   }
 
   .notice .notice_i .Title h2 {
@@ -1156,9 +1020,6 @@ footer .footer_i .icon svg {
     gap: 16px;
   }
 
-  .family {
-    padding: 60px 16px;
-  }
 
   .family .family_i {
     flex-direction: column;
@@ -1209,6 +1070,175 @@ footer .footer_i .icon svg {
 
   .family .family_i .familycard .card .text .cardtext {
     padding-top: 16px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  header {
+    height: 66px;
+    padding: 0 16px;
+  }
+
+  header .under-wrap .under .logo {
+    width: 140px;
+    height: 33px;
+  }
+
+  header .under-wrap .under .btn_box {
+    gap: 8px;
+  }
+
+  header .under-wrap .under .btn_box .Smart {
+    padding: 4px 12px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  header .under-wrap .under .btn_box .menu_btn {
+    font-size: 24px;
+  }
+
+  main .bg {
+    height: 281px;
+    background-image: url(../img/main/m_bg.png);
+  }
+
+  main .main_i .time .time_l span {
+    font-size: 14px;
+  }
+
+main .main_i .time .time_l svg {
+    display: none;
+  }
+
+main .main_i .time .time_r .icon {
+    padding-right: 0px;
+    font-size: 16px;
+  }
+
+main .main_i .time .time_r .text {
+    font-size: 14px;
+  }
+
+  .fnav {
+    padding-left: 16px;
+    padding-right: 0;
+    margin: 60px 0;
+  }
+
+  .fnav .fnav_i .allbox {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .fnav .fnav_i .allbox .box {
+    min-width: 120px;
+    min-height: 120px;
+  }
+
+  .fnav .fnav_i .allbox .box:last-child {
+    margin-right: 16px;
+  }
+
+  .fnav .fnav_i .allbox .box .imgbox {
+    width: 90px;
+    height: 90px;
+  }
+
+  .info{
+    padding: 60px 16px;
+  }
+
+  .info .text {
+    text-align: start;
+  }
+
+  .info .text b {
+    font-size: 26px;
+    font-weight: 600;
+  }
+
+  .info .text h2 {
+    font-size: 32px;
+    margin: 16px 0;
+  }
+
+  .info .text p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .events {
+    padding: 60px 16px;
+  }
+
+  .events .events_i .title {
+    width: 264px;
+    margin: auto;
+  }
+
+  .events .events_i .title P {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .events .events_i .title h2 {
+    font-size: 32px;
+  }
+
+  .events .events_i .but {
+    padding: 12px 24px;
+    margin: 32px auto;
+  }
+
+  .events .events_i .events_allbox {
+    grid-template-columns: 1fr;
+  }
+
+  .events .events_i .event_box .e_Title .text p{
+    font-size: 22px;
+  }
+
+  .events .events_i .event_box .e_Title .text span {
+    font-size: 22px;
+  }
+
+  .fun {
+    padding: 60px 16px;
+  }
+
+  .fun .fun_i .Title {
+    width: 264px;
+    margin: auto;
+  }
+
+  .fun .fun_i .Title P {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .fun .fun_i .Title h2 {
+    font-size: 32px;
+  }
+
+  .fun .fun_i .but {
+    padding: 12px 24px;
+    margin: 32px auto;
+  }
+
+  .fun .fun_i .fun_allbox {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .notice {
+    padding: 0 16px;
+  }
+
+  .family {
+    padding: 60px 16px;
   }
 
   footer {
