@@ -245,6 +245,105 @@ header .under .btn_box .menu_btn {
   display: none;
 }
 
+/* 햄버거버튼 메뉴 */
+
+.m_menu {
+  display: none;
+  width: 100%;
+  max-width: 1024px;
+  height: 100dvh;
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.m_menu .m_menu_h {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.m_menu .m_menu_h svg {
+  font-size: 32px;
+}
+
+.m_menu .btn {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.m_menu .btn .login {
+  padding: 16px 24px;
+  background: linear-gradient(135deg,
+      #005BAC 0%,
+      #0077C8 20%,
+      #00A1E9 100%);
+  border-radius: 16px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f8f8f8;
+}
+
+.m_menu .btn .group {
+  padding: 16px 24px;
+  background: linear-gradient(315deg,
+      #005BAC 0%,
+      #0077C8 20%,
+      #00A1E9 100%);
+  border-radius: 16px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f8f8f8;
+}
+
+.m_nav_menu {
+  display:block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.m_nav > ul > li{
+  margin-top: 32px;
+}
+
+.m_nav > ul > li > a{
+  margin-bottom: 20px;
+}
+
+.m_nav ul li .m_submenu{
+  padding-bottom: 32px;
+  border-bottom: 1px solid #ddd;
+}
+
+.m_submenu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 0;
+}
+
+.m_submenu li {
+  flex-basis: 50%;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 8px 0;
+}
+
+.m_nav > ul > li:last-child .m_submenu {
+  border-bottom: none;
+}
+
+/* //햄버거버튼 메뉴 */
+
 main {
   width: 100%;
   padding: 0 32px;
@@ -568,6 +667,16 @@ footer .footer_i .icon svg{
   header .under .btn_box .menu_btn {
     display: block;
     font-size: 32px;
+  }
+
+  .m_menu {
+    display: block;
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+  }
+
+  .m_menu.on {
+    transform: translateX(0);
   }
 
   main h1 {

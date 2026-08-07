@@ -34,6 +34,15 @@ $(function () {
       .fadeOut(200);
   });
 
+  // 햄버거 사이드 메뉴
+  $(".menu_btn").click(function () {
+    $(".m_menu").addClass("on");
+  });
+
+  $(".m_menu .close").click(function () {
+    $(".m_menu").removeClass("on");
+  });
+
 
  /////////////////// 종료 //////////////////
 });

@@ -5,11 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>워터파크 스파밸리</title>
+  <link rel="shortcut icon" href="../favicon/favicon-32x32.png" type="image/x-icon">
   <link rel="stylesheet" href="../CSS/detail.CSS">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <script src="https://kit.fontawesome.com/656147c9d3.js" crossorigin="anonymous"></script>
   <script src="../script/jquery-4.0.0.min.js"></script>
-  <script src="../script/attraction.js"></script>
+  <script src="../script/detail.js"></script>
 </head>
 
 <body>
@@ -44,8 +45,8 @@
       <div class="under">
         <div class="logo">
           <h1><a href="../index.html">
-            <img src="../img/logo.svg" alt="logo">
-          </a></h1>
+              <img src="../img/logo.svg" alt="logo">
+            </a></h1>
         </div>
         <nav class="gnb">
           <ul class="gnb-list">
@@ -95,6 +96,66 @@
     </div>
     <div class="dropdown-bg"></div>
   </header>
+
+  <!-- 햄버거버튼 사이드 메뉴 -->
+
+  <div class="m_menu">
+    <div class="m_menu_h">
+      <div class="m_lang">
+        <select>
+          <option>한국어</option>
+          <option>영어</option>
+          <option>중국어</option>
+          <option>일본어</option>
+        </select>
+      </div>
+
+      <div class="close">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+    </div>
+
+    <div class="btn">
+      <div class="login"><a href="#">로그인</a></div>
+      <div class="group"><a href="#">단체예매</a></div>
+    </div>
+
+    <div class="m_nav">
+      <ul>
+        <li>즐길거리
+          <ul class="m_submenu">
+            <li><a href="./sub-page/attraction.html">파크시설</a></li>
+            <li><a href="#">푸드</a></li>
+          </ul>
+        </li>
+        <li>요금 / 혜택
+          <ul class="m_submenu">
+            <li><a href="#">이용요금</a></li>
+            <li><a href="#">대여요금</a></li>
+            <li><a href="#">이벤트</a></li>
+            <li><a href="#">제휴카드</a></li>
+          </ul>
+        </li>
+        <li>이용정보
+          <ul class="m_submenu">
+            <li><a href="#">운영시간</a></li>
+            <li><a href="#">이용안내</a></li>
+            <li><a href="#">이용규칙</a></li>
+            <li><a href="#">오시는길</a></li>
+            <li><a href="#">가이드맵</a></li>
+          </ul>
+        </li>
+        <li>고객센터
+          <ul class="m_submenu">
+            <li><a href="#">공지사항</a></li>
+            <li><a href="#">자주묻는질문</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- //햄버거버튼 사이드 메뉴 -->
 
   <main>
     <div class="main_i">

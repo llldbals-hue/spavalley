@@ -7,8 +7,10 @@
   <title>워터파크 스파밸리</title>
   <link rel="shortcut icon" href="./favicon/favicon-32x32.png" type="image/x-icon">
   <link rel="stylesheet" href="./CSS/main.CSS">
+  <link rel="stylesheet" href="./script/aos.css">
   <script src="https://kit.fontawesome.com/656147c9d3.js" crossorigin="anonymous"></script>
   <script src="./script/jquery-4.0.0.min.js"></script>
+  <script src="./script/aos.js"></script>
   <script src="./script/main.js"></script>
 </head>
 
@@ -96,6 +98,66 @@
     <div class="dropdown-bg"></div>
   </header>
 
+  <!-- 햄버거버튼 사이드 메뉴 -->
+
+    <div class="m_menu">
+    <div class="m_menu_h">
+      <div class="m_lang">
+        <select>
+          <option>한국어</option>
+          <option>영어</option>
+          <option>중국어</option>
+          <option>일본어</option>
+        </select>
+      </div>
+
+      <div class="close">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+    </div>
+
+    <div class="btn">
+      <div class="login"><a href="#">로그인</a></div>
+      <div class="group"><a href="#">단체예매</a></div>
+    </div>
+
+    <div class="m_nav">
+      <ul>
+        <li>즐길거리
+          <ul class="m_submenu">
+            <li><a href="./sub-page/attraction.html">파크시설</a></li>
+            <li><a href="#">푸드</a></li>
+          </ul>
+        </li>
+        <li>요금 / 혜택
+          <ul class="m_submenu">
+            <li><a href="#">이용요금</a></li>
+            <li><a href="#">대여요금</a></li>
+            <li><a href="#">이벤트</a></li>
+            <li><a href="#">제휴카드</a></li>
+          </ul>
+        </li>
+        <li>이용정보
+          <ul class="m_submenu">
+            <li><a href="#">운영시간</a></li>
+            <li><a href="#">이용안내</a></li>
+            <li><a href="#">이용규칙</a></li>
+            <li><a href="#">오시는길</a></li>
+            <li><a href="#">가이드맵</a></li>
+          </ul>
+        </li>
+        <li>고객센터
+          <ul class="m_submenu">
+            <li><a href="#">공지사항</a></li>
+            <li><a href="#">자주묻는질문</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- //햄버거버튼 사이드 메뉴 -->
+
   <main>
     <div class="bg"></div>
 
@@ -175,14 +237,19 @@
   </nav>
 
   <section class="info">
-    <div class="text">
+    <div class="text" data-aos="fade-up"
+     data-aos-anchor-placement="center-bottom"
+     data-aos-duration="3000">
       <b>어트랙션부터 온천까지</b>
       <h2>365일 즐거운 워터파크</h2>
       <p>26m 높이의 스피드 슬라이드와 트위스트 슬라이드, 부메랑&슈퍼볼 등 다양한 어트랙션과 파도풀, 유수풀로 구성된 야외시설, 온천, 어린이풀 등으로 구성된 실내시설이 함께 하는신개념 사계절
         워터파크입니다.</p>
     </div>
 
-    <div class="img_box">
+    <div class="img_box" data-aos="fade-up"
+     data-aos-anchor-placement="center-bottom"
+       data-aos-duration="3000"
+       data-aos-delay="200">
       <img src="./img/main/info_bg.png" alt="info_bg">
     </div>
   </section>
@@ -201,7 +268,9 @@
       </a>
 
       <div class="events_allbox">
-        <div class="event_box">
+        <div class="event_box" data-aos="fade-up"
+     data-aos-anchor-placement="center-bottom"
+       data-aos-duration="2000">
           <a href="#">
             <div class="e_Title">
               <div class="icon">
@@ -219,7 +288,9 @@
           </a>
         </div>
 
-        <div class="event_box">
+        <div class="event_box" data-aos="fade-up"
+     data-aos-anchor-placement="center-bottom"
+       data-aos-duration="2000" data-aos-delay="200">
           <a href="#">
             <div class="e_Title">
               <div class="icon">
@@ -237,7 +308,9 @@
           </a>
         </div>
 
-        <div class="event_box">
+        <div class="event_box" data-aos="fade-up"
+     data-aos-anchor-placement="center-bottom"
+       data-aos-duration="2000" data-aos-delay="400">
           <a href="#">
             <div class="e_Title">
               <div class="icon">
@@ -254,7 +327,9 @@
           </a>
         </div>
 
-        <div class="event_box">
+        <div class="event_box" data-aos="fade-up"
+     data-aos-anchor-placement="center-bottom"
+       data-aos-duration="2000" data-aos-delay="600">
           <a href="#">
             <div class="e_Title">
               <div class="icon">
@@ -288,7 +363,9 @@
         </div>
       </a>
 
-      <div class="fun_allbox">
+      <div class="fun_allbox" data-aos="fade-up"
+     data-aos-anchor-placement="center-bottom"
+     data-aos-duration="2000">
         <div class="fun_box">
           <div class="fun_img">
             <a href="#"><img src="./img/attraction/img7.jpg" alt="item1"></a>
@@ -366,11 +443,17 @@
   <section class="family">
     <div class="family_i">
       <div class="title">
-        <b>자연 속 휴식과 <br> 즐거움이 함계 하는 곳</b>
-        <h3>리조트 스파밸리</h3>
+        <b data-aos="zoom-in-right"
+     data-aos-offset="200"
+     data-aos-easing="ease-in-sine">자연 속 휴식과 <br> 즐거움이 함계 하는 곳</b>
+        <h3 data-aos="zoom-in-right"
+     data-aos-offset="200"
+     data-aos-easing="ease-in-sine" >리조트 스파밸리</h3>
       </div>
       <div class="familycard">
-        <a href="https://www.spavalley.co.kr/naturepark/" class="card">
+        <a href="https://www.spavalley.co.kr/naturepark/" class="card" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="1000">
           <div class="imgbox"></div>
           <div class="text">
             <div class="cardtitle">
@@ -383,7 +466,9 @@
           </div>
         </a>
 
-        <a href="https://forrest12.co.kr/" class="card">
+        <a href="https://forrest12.co.kr/" class="card" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="1000">
           <div class="imgbox"></div>
           <div class="text">
             <div class="cardtitle">
