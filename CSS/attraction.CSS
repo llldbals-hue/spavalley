@@ -95,30 +95,104 @@ header .top .login {
 header .top .login a {
   color: #333;
   margin-right: 24px;
-  margin-top: 2px;
 }
 
 header .top .login .icon {
-  margin-right: 12px;
+  margin-right: 8px;
 }
 
-select {
-  width: 100%;
-  height: 100%;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  padding-right: 12px;
-  background-color: transparent;
-  cursor: pointer;
+.lang-current,
+.lang-list button {
+  font-family: inherit;
+}
+
+.lang-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* 현재 선택된 언어 */
+.lang-current {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: #333;
-  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* 화살표 */
+.lang-current .arrow {
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+  transform: rotate(-45deg);
+  transition: transform 0.2s;
+}
+
+/* 닫혀 있을 때 */
+.lang-dropdown:not(.open) .arrow {
+  transform: rotate(135deg);
+}
+
+/* 옵션 박스 */
+.lang-list {
+  display: none;
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  z-index: 100;
+  width: 70px;
+  margin: 0;
+  padding: 10px 0;
+  list-style: none;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 12%);
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+
+.lang-dropdown.open .lang-list {
+  display: block;
+}
+
+.lang-list li {
+  margin: 0;
+  padding: 0;
+}
+
+/* 옵션 사이 선 없음 */
+.lang-list button {
+  width: 100%;
+  padding: 8px 20px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #666;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.lang-list button.active {
   font-weight: 700;
 }
 
-select option{
-  font-family: Pretendard;
-  font-size: 16px;
+.lang-list button:hover {
+  background: #f3f3f3;
+  color: #222;
+}
+
+/* 선택된 옵션 */
+.lang-list button.active {
+  color: #222;
+  font-weight: 700;
 }
 
 header .under-wrap {
@@ -258,16 +332,22 @@ header .under .btn_box .menu_btn {
   right: 0;
   z-index: 9999;
   overflow-y: auto;
+  scrollbar-width: none;
   background-color: #fff;
+}
+
+.m_menu::-webkit-scrollbar {
+  display: none;
 }
 
 .m_menu .m_menu_h {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.m_menu .m_menu_h svg {
+.m_menu .m_menu_h .close svg {
   font-size: 32px;
 }
 
@@ -309,7 +389,8 @@ header .under .btn_box .menu_btn {
   display:block;
   font-size: 14px;
   font-weight: 500;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  color: #888;
 }
 
 .m_nav > ul > li{

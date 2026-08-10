@@ -39,10 +39,31 @@ $(function () {
   // 햄버거 사이드 메뉴
   $(".menu_btn").click(function () {
     $(".m_menu").addClass("on");
+    $("body").css("overflow", "hidden");
   });
 
   $(".m_menu .close").click(function () {
     $(".m_menu").removeClass("on");
+    $("body").css("overflow", "");
+  });
+
+  $(".lang-current").click(function (e) {
+    e.stopPropagation();
+    $(".lang-list").toggle();
+  });
+
+  // 언어 선택
+  $(".lang-list button").click(function (e) {
+    e.stopPropagation();
+
+    $(".lang-current span").text($(this).text());
+    $(".lang-value").val($(this).data("value"));
+    $(".lang-list").hide();
+  });
+
+  // 드롭다운 바깥 클릭 시 닫기
+  $(document).click(function () {
+    $(".lang-list").hide();
   });
 
 

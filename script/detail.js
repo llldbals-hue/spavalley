@@ -37,10 +37,27 @@ $(function () {
   // 햄버거 사이드 메뉴
   $(".menu_btn").click(function () {
     $(".m_menu").addClass("on");
+    $("body").css("overflow", "hidden");
   });
 
   $(".m_menu .close").click(function () {
     $(".m_menu").removeClass("on");
+    $("body").css("overflow", "");
+  });
+
+  $(".lang-current").click(function (e) {
+    e.stopPropagation();
+    $(this).siblings(".lang-list").toggle();
+  });
+
+  $(".lang-list button").click(function (e) {
+    e.stopPropagation();
+    $(this).closest(".lang-dropdown").find(".lang-current span").text($(this).text());
+    $(this).closest(".lang-list").hide();
+  });
+
+  $(document).click(function () {
+    $(".lang-list").hide();
   });
 
 
