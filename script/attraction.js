@@ -60,6 +60,28 @@ $(function () {
     $(".lang-list").hide();
   });
 
+  // 필터부분
+
+  $("main .but .entire").addClass("active");
+
+  $("main .but > div").click(function () {
+    const $button = $(this);
+    const filter = $button.hasClass("outdoor")
+      ? "outdoor"
+      : $button.hasClass("indoor")
+        ? "indoor"
+        : "all";
+
+    $button.addClass("active").siblings().removeClass("active");
+
+    if (filter === "all") {
+      $(".attraction .card").show();
+    } else {
+      $(".attraction .card").hide();
+      $(`.attraction .card[data-location="${filter}"]`).show();
+    }
+  });
+
 
  /////////////////// 종료 //////////////////
 });

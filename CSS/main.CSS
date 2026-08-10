@@ -360,6 +360,8 @@ header .under .btn_box .menu_btn {
 
 .m_menu .m_menu_h .close svg {
   font-size: 32px;
+  cursor: pointer;
+
 }
 
 .m_menu .btn {
@@ -887,6 +889,11 @@ main .main_i .time .time_r .text {
   background-position: center;
   background-size: cover;
   border-radius: 32px 32px 0 0;
+  transition: transform 0.5s ease;
+}
+
+.family .family_i .familycard .card .imgbox:hover {
+  transform: scale(1.1);
 }
 
 .family .family_i .familycard .card:last-child .imgbox {
@@ -1055,6 +1062,7 @@ footer .footer_i .icon svg {
   header .under-wrap .under .btn_box .menu_btn {
     display: block;
     font-size: 32px;
+    cursor: pointer;
   }
 
   main .main_i .time .time_l {

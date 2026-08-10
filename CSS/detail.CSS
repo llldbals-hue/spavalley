@@ -361,6 +361,7 @@ header .under .btn_box .menu_btn {
 
 .m_menu .m_menu_h .close svg {
   font-size: 32px;
+  cursor: pointer;
 }
 
 .m_menu .btn {
@@ -847,6 +848,7 @@ footer .footer_i .icon svg {
   header .under .btn_box .menu_btn {
     display: block;
     font-size: 32px;
+    cursor: pointer;
   }
 
   .m_menu {

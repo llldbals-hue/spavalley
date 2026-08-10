@@ -349,6 +349,7 @@ header .under .btn_box .menu_btn {
 
 .m_menu .m_menu_h .close svg {
   font-size: 32px;
+  cursor: pointer;
 }
 
 .m_menu .btn {
@@ -473,7 +474,7 @@ main .but div {
   cursor: pointer;
 }
 
-main .but .entire {
+main .but .active {
   background: #005bac;
   color: #f8f8f8;
 }
@@ -554,15 +555,17 @@ main .card .icon .operate {
   font-weight: 600;
 }
 
-main .card:nth-child(1) .icon .paid,
-main .card:nth-child(3) .icon .paid,
-main .card:nth-child(4) .icon .paid,
-main .card:nth-child(6) .icon .paid{
+main .card .icon .paid{
   display: none;
 }
 
-main .card:nth-child(4) .operate,
-main .card:nth-child(5) .operate{
+main .card:nth-child(3) .icon .paid,
+main .card:nth-child(7) .icon .paid{
+  display: block;
+}
+
+main .card:nth-child(5) .operate,
+main .card:nth-child(7) .operate{
   background-color: #f8f8f8;
   color: #999;
 }
@@ -748,6 +751,7 @@ footer .footer_i .icon svg{
   header .under .btn_box .menu_btn {
     display: block;
     font-size: 32px;
+    cursor: pointer;
   }
 
   .m_menu {
