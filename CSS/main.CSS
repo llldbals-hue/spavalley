@@ -44,6 +44,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -312,7 +313,7 @@ header .under .btn_box .Smart {
 }
 
 header .under .btn_box .Smart:hover {
-  color: #E1B646;
+  color: #FFD361;
 }
 
 header .under .btn_box .organization {
@@ -399,22 +400,22 @@ header .under .btn_box .menu_btn {
 }
 
 .m_nav_menu {
-  display:block;
+  display: block;
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 16px;
   color: #888;
 }
 
-.m_nav > ul > li{
+.m_nav>ul>li {
   margin-top: 32px;
 }
 
-.m_nav > ul > li > a{
+.m_nav>ul>li>a {
   margin-bottom: 20px;
 }
 
-.m_nav ul li .m_submenu{
+.m_nav ul li .m_submenu {
   padding-bottom: 32px;
   border-bottom: 1px solid #ddd;
 }
@@ -432,11 +433,25 @@ header .under .btn_box .menu_btn {
   padding: 8px 0;
 }
 
-.m_nav > ul > li:last-child .m_submenu {
+.m_nav>ul>li:last-child .m_submenu {
   border-bottom: none;
 }
 
 /* //햄버거버튼 메뉴 */
+
+.topbtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  position: fixed;
+  right: 80px;
+  bottom: 80px;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  z-index: 900;
+  display: none;
+}
 
 main .bg {
   width: 100%;
@@ -687,7 +702,7 @@ main .main_i .time .time_r .text {
   transition: transform 0.5s ease;
 }
 
-.events .events_i .event_box:hover .imgbox img{
+.events .events_i .event_box:hover .imgbox img {
   transform: scale(1.1);
 }
 
@@ -751,7 +766,7 @@ main .main_i .time .time_r .text {
   transition: transform 0.5s ease;
 }
 
-.fun .fun_i .fun_allbox .fun_box .fun_img:hover img{
+.fun .fun_i .fun_allbox .fun_box .fun_img:hover img {
   transform: scale(1.1);
 }
 
@@ -1100,7 +1115,7 @@ footer .footer_i .icon svg {
     gap: 40px
   }
 
-  .events .events_i .event_box .e_Title .text p{
+  .events .events_i .event_box .e_Title .text p {
     font-size: 22px;
   }
 
@@ -1121,7 +1136,7 @@ footer .footer_i .icon svg {
     gap: clamp(24px, 4vw, 40px);
   }
 
-  .notice .notice_i .notice_allbox{
+  .notice .notice_i .notice_allbox {
     gap: 18px;
   }
 
@@ -1149,7 +1164,7 @@ footer .footer_i .icon svg {
   }
 
   .family .family_i .familycard .card .text .cardtitle b {
-  font-size: clamp(20px, 2vw, 24px);
+    font-size: clamp(20px, 2vw, 24px);
   }
 
   footer {
@@ -1207,11 +1222,11 @@ footer .footer_i .icon svg {
   }
 
 
-   .events .events_i .events_allbox {
+  .events .events_i .events_allbox {
     gap: clamp(24px, 4vw, 40px);
   }
 
-  .events .events_i .event_box .e_Title .text p{
+  .events .events_i .event_box .e_Title .text p {
     font-size: clamp(18px, 3vw, 22px);
   }
 
@@ -1315,16 +1330,16 @@ footer .footer_i .icon svg {
     font-size: 14px;
   }
 
-main .main_i .time .time_l svg {
+  main .main_i .time .time_l svg {
     display: none;
   }
 
-main .main_i .time .time_r .icon {
+  main .main_i .time .time_r .icon {
     padding-right: 0px;
     font-size: 16px;
   }
 
-main .main_i .time .time_r .text {
+  main .main_i .time .time_r .text {
     font-size: 14px;
   }
 
@@ -1355,7 +1370,7 @@ main .main_i .time .time_r .text {
     height: 90px;
   }
 
-  .info{
+  .info {
     padding: 60px 16px;
   }
 
@@ -1405,7 +1420,7 @@ main .main_i .time .time_r .text {
     grid-template-columns: 1fr;
   }
 
-  .events .events_i .event_box .e_Title .text p{
+  .events .events_i .event_box .e_Title .text p {
     font-size: 22px;
   }
 

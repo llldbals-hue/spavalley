@@ -44,6 +44,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -332,7 +333,6 @@ header .under .btn_box .menu_btn {
 }
 
 /* 햄버거버튼 메뉴 */
-
 .m_menu {
   display: none;
   width: 100%;
@@ -435,8 +435,21 @@ header .under .btn_box .menu_btn {
 .m_nav>ul>li:last-child .m_submenu {
   border-bottom: none;
 }
-
 /* //햄버거버튼 메뉴 */
+
+.topbtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  position: fixed;
+  right: 80px;
+  bottom: 80px;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  z-index: 900;
+  display: none;
+}
 
 main {
   width: 100%;

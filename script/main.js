@@ -66,6 +66,21 @@ $(function () {
     $(".lang-list").hide();
   });
 
+  // 스크롤탑 버튼
+  $(window).on('scroll', function () {
+    let w_p = $(window).scrollTop();
 
- /////////////////// 종료 //////////////////
+    if (w_p > 100) {
+      $(".topbtn").stop().fadeIn();
+    } else {
+      $('.topbtn').stop().fadeOut();
+    }
+  });
+
+  $(".topbtn").on('click', function () {
+    $(window).scrollTop(0);
+  });
+
+
+  /////////////////// 종료 //////////////////
 });

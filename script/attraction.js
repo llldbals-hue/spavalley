@@ -82,6 +82,20 @@ $(function () {
     }
   });
 
+  // 스크롤탑 버튼
+  $(window).on('scroll', function () {
+    let w_p = $(window).scrollTop();
 
+    if (w_p > 100) {
+      $(".topbtn").stop().fadeIn();
+    } else {
+      $('.topbtn').stop().fadeOut();
+    }
+  });
+
+  $(".topbtn").on('click', function () {
+    $(window).scrollTop(0);
+  });
+  
  /////////////////// 종료 //////////////////
 });
