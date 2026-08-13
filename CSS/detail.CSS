@@ -58,6 +58,7 @@ ul {
 
 img {
   display: block;
+  max-width: 100%;
 }
 
 body {
@@ -476,12 +477,54 @@ main .main_i nav p:last-child {
 
 main .main_i .imgbox {
   width: 100%;
-  aspect-ratio: 3 / 2;
-  background-image: url(../img/attraction/wave_pool.jpg);
-  background-position: center;
-  background-size: cover;
+  aspect-ratio: 90 / 61;
   border-radius: 32px;
   margin: clamp(100px, 10vw, 120px) 0;
+  overflow: hidden;
+
+  /* 리사이즈 도중 Swiper의 크기 계산을 안정화 */
+  min-width: 0;
+  position: relative;
+}
+
+main .main_i .imgbox .swiper-wrapper,
+main .main_i .imgbox .swiper-slide {
+  width: 100%;
+  height: 100%;
+}
+
+main .main_i .imgbox .swiper-wrapper {
+  will-change: transform;
+}
+
+main .main_i .imgbox .swiper-slide {
+  overflow: hidden;
+  backface-visibility: hidden;
+  will-change: opacity;
+}
+
+/* 모든 이미지 표시 조건을 동일하게 유지 */
+main .main_i .imgbox .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Pagination 위치 */
+main .main_i .imgbox .swiper-pagination {
+  bottom: 24px;
+}
+
+/* 기본 bullet */
+main .main_i .imgbox {
+  --swiper-pagination-color: #fff;
+  --swiper-pagination-bullet-inactive-color: #fff;
+  --swiper-pagination-bullet-inactive-opacity: 0.5;
+  --swiper-pagination-bullet-size: 10px;
+  --swiper-pagination-bullet-horizontal-gap: 5px;
 }
 
 main .main_i .text {

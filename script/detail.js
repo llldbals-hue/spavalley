@@ -74,6 +74,52 @@ $(function () {
   $(".topbtn").on('click', function () {
     $(window).scrollTop(0);
   });
-  
- /////////////////// 종료 //////////////////
+
+  // 슬라이드
+
+  const detailSwiper = new Swiper(".detail-swiper", {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    speed: 450,
+
+    /* 가로 위치 이동 대신 이미지를 겹쳐 전환해 loop 보정 흔들림 최소화 */
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+    },
+
+    pagination: {
+      el: ".detail-swiper .swiper-pagination",
+      clickable: true,
+    },
+
+    /* 4초마다 자동 전환하고 사용자 조작 후에도 자동 재생 유지 */
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+
+    /* 마지막 슬라이드 다음에 첫 슬라이드가 자연스럽게 이어지도록 처리 */
+    loop: true,
+
+    /* 컨테이너 및 화면 크기 변경 감지 */
+    resizeObserver: true,
+    updateOnWindowResize: true,
+
+    /* 리사이즈 중 정수 픽셀로 튀는 현상을 막기 위해 소수점 너비 유지 */
+    roundLengths: false,
+
+    /* 슬라이드 수가 적을 때 불필요한 작동 방지 */
+    watchOverflow: true,
+
+    /* 화면 크기가 바뀌는 동안 기존 전환 애니메이션이 섞이지 않게 처리 */
+    on: {
+      beforeResize(swiper) {
+        swiper.setTransition(0);
+      },
+    },
+  });
+
+  /////////////////// 종료 //////////////////
 });
