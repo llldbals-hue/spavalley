@@ -80,7 +80,7 @@ $(function () {
   const detailSwiper = new Swiper(".detail-swiper", {
     slidesPerView: 1,
     spaceBetween: 0,
-    speed: 450,
+    speed: 1000,
 
     /* 가로 위치 이동 대신 이미지를 겹쳐 전환해 loop 보정 흔들림 최소화 */
     effect: "fade",
@@ -93,9 +93,9 @@ $(function () {
       clickable: true,
     },
 
-    /* 4초마다 자동 전환하고 사용자 조작 후에도 자동 재생 유지 */
+    /* 자동 전환하고 사용자 조작 후에도 자동 재생 유지 */
     autoplay: {
-      delay: 4000,
+      delay: 3000,
       disableOnInteraction: false,
       pauseOnMouseEnter: true,
     },
