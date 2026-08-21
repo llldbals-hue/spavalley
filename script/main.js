@@ -81,6 +81,62 @@ $(function () {
     $(window).scrollTop(0);
   });
 
+  // 인기 시설 Swiper
+  const funSlider = document.querySelector('.fun_allbox.swiper');
+
+  if (funSlider && typeof Swiper !== 'undefined') {
+    const getFunSideSpace = () => {
+      if (window.innerWidth <= 480) return 16;
+      return Math.max(32, (window.innerWidth - 1328) / 2);
+    };
+
+    const initialSideSpace = getFunSideSpace();
+    const funSwiper = new Swiper(funSlider, {
+      slidesPerView: 'auto',
+      spaceBetween: 16,
+      slidesOffsetBefore: initialSideSpace,
+      slidesOffsetAfter: initialSideSpace,
+      speed: 550,
+      grabCursor: true,
+      watchOverflow: true,
+      resistanceRatio: 0.65
+    });
+
+    window.addEventListener('resize', function () {
+      const sideSpace = getFunSideSpace();
+      funSwiper.params.slidesOffsetBefore = sideSpace;
+      funSwiper.params.slidesOffsetAfter = sideSpace;
+      funSwiper.update();
+    });
+  }
+
+  // 주요 메뉴: 내용이 화면을 넘을 때만 Swiper 활성화
+  const fnavSlider = document.querySelector('.fnav_i.swiper');
+
+  if (fnavSlider && typeof Swiper !== 'undefined') {
+    const getFnavGap = () => {
+      if (window.innerWidth <= 480) return 16;
+      return Math.min(82, Math.max(16, window.innerWidth * 0.04));
+    };
+    const initialFnavGap = getFnavGap();
+
+    const fnavSwiper = new Swiper(fnavSlider, {
+      slidesPerView: 'auto',
+      spaceBetween: initialFnavGap,
+      slidesOffsetAfter: 0,
+      speed: 550,
+      grabCursor: true,
+      watchOverflow: true,
+      resistanceRatio: 0.65
+    });
+
+    window.addEventListener('resize', function () {
+      const gap = getFnavGap();
+      fnavSlider.style.setProperty('--fnav-gap', `${gap}px`);
+      fnavSwiper.params.spaceBetween = gap;
+      fnavSwiper.update();
+    });
+  }
 
   /////////////////// 종료 //////////////////
 });

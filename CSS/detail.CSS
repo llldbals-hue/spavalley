@@ -139,21 +139,6 @@ header .top .login .icon {
   cursor: pointer;
 }
 
-/* 화살표 */
-.lang-current .arrow {
-  width: 6px;
-  height: 6px;
-  border-top: 1px solid #fff;
-  border-right: 1px solid #fff;
-  transform: rotate(-45deg);
-  transition: transform 0.2s;
-}
-
-/* 닫혀 있을 때 */
-.lang-dropdown:not(.open) .arrow {
-  transform: rotate(135deg);
-}
-
 /* 옵션 박스 */
 .lang-list {
   display: none;
@@ -172,10 +157,6 @@ header .top .login .icon {
   overflow: hidden;
 }
 
-.lang-dropdown.open .lang-list {
-  display: block;
-}
-
 .lang-list li {
   margin: 0;
   padding: 0;
@@ -192,10 +173,6 @@ header .top .login .icon {
   font-size: 12px;
   text-align: left;
   cursor: pointer;
-}
-
-.lang-list button.active {
-  font-weight: 700;
 }
 
 .lang-list button:hover {

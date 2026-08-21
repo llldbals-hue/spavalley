@@ -58,11 +58,13 @@ ul {
 
 img {
   display: block;
+  max-width: 100%;
 }
 
 body {
   font-family: Pretendard;
   color: #333;
+  overflow-x: clip;
 }
 
 h2 {
@@ -96,7 +98,18 @@ header .top .Family {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #666;
+  color: #999;
+  font-size: 14px;
+}
+
+header .top .Family .nature::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 16px;
+  background-color: #999;
+  vertical-align: top;
+  margin-left: 8px;
 }
 
 header .top .login {
@@ -138,21 +151,6 @@ header .top .login .icon {
   cursor: pointer;
 }
 
-/* 화살표 */
-.lang-current .arrow {
-  width: 6px;
-  height: 6px;
-  border-top: 1px solid #fff;
-  border-right: 1px solid #fff;
-  transform: rotate(-45deg);
-  transition: transform 0.2s;
-}
-
-/* 닫혀 있을 때 */
-.lang-dropdown:not(.open) .arrow {
-  transform: rotate(135deg);
-}
-
 /* 옵션 박스 */
 .lang-list {
   display: none;
@@ -171,10 +169,6 @@ header .top .login .icon {
   overflow: hidden;
 }
 
-.lang-dropdown.open .lang-list {
-  display: block;
-}
-
 .lang-list li {
   margin: 0;
   padding: 0;
@@ -191,10 +185,6 @@ header .top .login .icon {
   font-size: 12px;
   text-align: left;
   cursor: pointer;
-}
-
-.lang-list button.active {
-  font-weight: 700;
 }
 
 .lang-list button:hover {
@@ -499,6 +489,16 @@ main .main_i .time .time_r .text {
   gap: 28px;
 }
 
+main .main_i .time .time_r .text span:first-child::after {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 24px;
+  background-color: #333;
+  vertical-align: top;
+  margin-left: 28px;
+}
+
 .fnav {
   width: 100%;
   margin: clamp(60px, 10vw, 120px) 0;
@@ -507,38 +507,38 @@ main .main_i .time .time_r .text {
 }
 
 .fnav .fnav_i {
+  --fnav-gap: clamp(16px, 4vw, 82px);
   max-width: 1328px;
   margin: auto;
 }
 
 .fnav .fnav_i .allbox {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(152px, 1fr));
-  gap: clamp(16px, 4vw, 82px);
+  display: flex;
 }
 
 .fnav .fnav_i .allbox .box {
+  width: max(152px, calc((100% - (var(--fnav-gap) * 4)) / 5));
+  flex-shrink: 0;
+}
+
+.fnav .fnav_i .allbox .box a {
   width: 100%;
   min-width: 152px;
   aspect-ratio: 1 / 1;
   min-height: 152px;
   background-color: #DBECE8;
   border-radius: 24px;
-  padding: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 8px;
 }
 
 .fnav .fnav_i .allbox .box .imgbox {
-  width: clamp(120px, 12vw, 160px);
   aspect-ratio: 1 / 1;
-}
-
-.fnav .fnav_i .allbox .box .imgbox img {
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 70%;
   object-fit: contain;
 }
 
@@ -583,10 +583,99 @@ main .main_i .time .time_r .text {
   margin: auto;
 }
 
+.fun {
+  width: 100%;
+  padding: clamp(100px, 10vw, 120px) 32px;
+  overflow-x: clip;
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+  margin-bottom: clamp(100px, 10vw, 120px)
+}
+
+.fun::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url(../img/main/wave2.png) center / cover no-repeat;
+  opacity: 0.7;
+}
+
+.fun .fun_i {
+  max-width: 1328px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.fun .fun_i .Title p {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.fun .fun_i .but {
+  width: fit-content;
+  margin: 30px auto 48px;
+  font-size: clamp(16px, 4vw, 20px);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 15px 40px;
+  border: 1px solid #333;
+  border-radius: 100px;
+}
+
+.fun .fun_i .but .icon svg {
+  font-size: 16px;
+}
+
+.fun .fun_i .but:hover {
+  background-color: #00A1E9;
+  color: #fff;
+  border: 1px solid #00A1E9;
+}
+
+.fun .fun_i .fun_allbox {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.fun .fun_i .fun_allbox .fun_box {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+.fun .fun_i .fun_allbox .fun_box .fun_img {
+  width: 320px;
+  height: 280px;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.fun .fun_i .fun_allbox .fun_box .fun_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  -webkit-user-drag: none;
+}
+
+.fun .fun_i .fun_allbox .fun_box p {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
 .events {
   width: 100%;
-  background-color: #2483c6;
   padding: clamp(100px, 10vw, 120px) 32px;
+  background-image: url(../img/main/event_bg.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
 }
 
 .events .events_i {
@@ -596,7 +685,6 @@ main .main_i .time .time_r .text {
 
 .events .events_i .title {
   text-align: center;
-  color: #F8F8F8;
 }
 
 .events .events_i .title p {
@@ -610,12 +698,11 @@ main .main_i .time .time_r .text {
   margin: 30px auto 48px;
   font-size: clamp(16px, 4vw, 20px);
   font-weight: 600;
-  color: #F8F8F8;
   display: flex;
   gap: 16px;
   align-items: center;
   padding: 15px 40px;
-  border: 1px solid #F8F8F8;
+  border: 1px solid #333;
   border-radius: 100px;
 }
 
@@ -625,8 +712,9 @@ main .main_i .time .time_r .text {
 
 
 .events .events_i .but:hover {
-  background-color: #f8f8f8;
-  color: #2483c6;
+  background-color: #00A1E9;
+  color: #fff;
+  border: 1px solid #00A1E9;
 }
 
 .events .events_i .events_allbox {
@@ -639,24 +727,26 @@ main .main_i .time .time_r .text {
   width: 100%;
   aspect-ratio: 8 / 9;
 
-  background-color: #f8f8f8;
+  background-color: #fff;
   border-radius: 24px;
   overflow: hidden;
+  position: relative;
+  box-shadow: 1px 1px 8px rgba(3, 3, 3, 0.1);
 }
 
 .events .events_i .event_box>a {
   width: 100%;
   height: 100%;
-
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .events .events_i .event_box .e_Title {
   width: 100%;
   flex-shrink: 0;
-  padding: 16px 16px 4px;
+  padding: 16px 16px 0;
+  position: relative;
+  z-index: 1;
 }
 
 .events .events_i .event_box .e_Title .icon {
@@ -687,93 +777,39 @@ main .main_i .time .time_r .text {
 }
 
 .events .events_i .event_box .imgbox {
-  position: relative;
-  width: 100%;
+  width: clamp(160px, 90%, 295px);
   flex: 1;
   overflow: hidden;
-}
-
-.events .events_i .event_box .imgbox img {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
   object-fit: contain;
+  top: 40%;
+  left: 3%;
+}
+
+.events .events_i .event_box:first-child .imgbox {
+  width: clamp(120px, 85%, 270px);
+  top: 28%;
+  object-fit: contain;
+  left: 18%;
+}
+
+.events .events_i .event_box:nth-child(3) .imgbox {
+  width: clamp(100px, 68%, 220px);
+  top: 32%;
+  object-fit: contain;
+  left: 16%;
+}
+
+.events .events_i .event_box:last-child .imgbox {
+  width: clamp(160px, 90%, 295px);
+  top: 40%;
+  left: 3%;
+  object-fit: contain;
+}
+
+.events .events_i .event_box:hover .imgbox {
+  transform: scale(1.05);
   transition: transform 0.5s ease;
-}
-
-.events .events_i .event_box:hover .imgbox img {
-  transform: scale(1.1);
-}
-
-.fun {
-  width: 100%;
-  background-color: #DBECE8;
-  padding: clamp(100px, 10vw, 120px) 32px;
-}
-
-.fun .fun_i {
-  max-width: 1328px;
-  margin: auto;
-  text-align: center;
-}
-
-.fun .fun_i .Title p {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.fun .fun_i .but {
-  width: fit-content;
-  margin: 30px auto 48px;
-  font-size: clamp(16px, 4vw, 20px);
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 15px 40px;
-  border: 1px solid #333;
-  border-radius: 100px;
-}
-
-.fun .fun_i .but .icon svg {
-  font-size: 16px;
-}
-
-.fun .fun_i .but:hover {
-  background-color: #333;
-  color: #DBECE8;
-}
-
-.fun .fun_i .fun_allbox {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.fun .fun_i .fun_allbox .fun_box .fun_img {
-  width: 100%;
-  aspect-ratio: 320 / 280;
-  border-radius: 32px;
-  overflow: hidden;
-}
-
-.fun .fun_i .fun_allbox .fun_box .fun_img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.fun .fun_i .fun_allbox .fun_box .fun_img:hover img {
-  transform: scale(1.1);
-}
-
-.fun .fun_i .fun_allbox .fun_box p {
-  font-size: 26px;
-  font-weight: 700;
-  margin-top: 8px;
 }
 
 .notice {
@@ -846,9 +882,20 @@ main .main_i .time .time_r .text {
 }
 
 .family {
+  position: relative;
   width: 100%;
-  background-color: #53B3AA;
   padding: clamp(100px, 10vw, 120px) 32px;
+  background-color: #333;
+  overflow: hidden;
+}
+
+.family::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url(../img/main/bg_spavalley.jpg) center / cover no-repeat;
+  opacity: 0.4;
 }
 
 .family .family_i {
@@ -858,6 +905,9 @@ main .main_i .time .time_r .text {
   justify-content: space-between;
   align-items: center;
   gap: 84px;
+  position: relative;
+  z-index: 1;
+
 }
 
 .family .family_i .title {
@@ -875,6 +925,7 @@ main .main_i .time .time_r .text {
   font-size: clamp(32px, 4vw, 56px);
   font-weight: 800;
   margin-top: 20px;
+  color: #F8F8F8;
 }
 
 .family .family_i .familycard {
@@ -920,7 +971,7 @@ main .main_i .time .time_r .text {
   width: 100%;
   background-color: #F8F8F8;
   border-radius: 0 0 32px 32px;
-  padding: clamp(20px, 1.5vw, 24px) clamp(24px, 2vw, 32px);
+  padding: clamp(20px, 1.5vw, 24px);
 }
 
 .family .family_i .familycard .card .text .cardtitle {
@@ -1097,11 +1148,6 @@ footer .footer_i .icon svg {
     padding-right: 12px;
   }
 
-  .fnav .fnav_i .allbox {
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
   .events {
     padding: clamp(60px, 10vw, 100px) 32px;
   }
@@ -1123,17 +1169,40 @@ footer .footer_i .icon svg {
     font-size: 22px;
   }
 
+  .events .events_i .event_box:first-child .imgbox {
+    width: 85%;
+    top: 25%;
+    object-fit: contain;
+    left: 15%;
+  }
+
+  .events .events_i .event_box:nth-child(2) .imgbox {
+    width: 90%;
+    top: 40%;
+    left: 3%;
+    object-fit: contain;
+  }
+
+  .events .events_i .event_box:nth-child(3) .imgbox {
+    width: 68%;
+    top: 32%;
+    object-fit: contain;
+    left: 16%;
+  }
+
+  .events .events_i .event_box:last-child .imgbox {
+    width: 90%;
+    top: 40%;
+    left: 3%;
+    object-fit: contain;
+  }
+
   .fun {
     padding: clamp(60px, 10vw, 100px) 32px;
   }
 
   .fun .fun_i .but {
     margin-bottom: clamp(32px, 4vw, 48px);
-  }
-
-  .fun .fun_i .fun_allbox {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(24px, 4vw, 40px);
   }
 
   .notice .notice_i .notice_allbox {
@@ -1217,10 +1286,25 @@ footer .footer_i .icon svg {
     font-size: 16px;
   }
 
+  main .main_i .time .time_r .text span:first-child::after {
+    display: none;
+  }
+
   main .main_i .time .time_r .text p {
     display: none;
   }
 
+  .fnav {
+    padding: 0;
+  }
+
+  .fnav .allbox .box:first-child {
+    margin-left: 32px;
+  }
+
+  .fnav .allbox .box:last-child {
+    margin-right: 32px;
+  }
 
   .events .events_i .events_allbox {
     gap: clamp(24px, 4vw, 40px);
@@ -1344,16 +1428,15 @@ footer .footer_i .icon svg {
   }
 
   .fnav {
-    padding-left: 16px;
-    padding-right: 0;
     margin: 60px 0;
   }
 
   .fnav .fnav_i .allbox {
     display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    scrollbar-width: none;
+  }
+
+  .fnav .fnav_i {
+    --fnav-gap: 16px;
   }
 
   .fnav .fnav_i .allbox .box {
@@ -1361,13 +1444,12 @@ footer .footer_i .icon svg {
     min-height: 120px;
   }
 
-  .fnav .fnav_i .allbox .box:last-child {
-    margin-right: 16px;
+  .fnav .fnav_i .allbox .box:first-child {
+    margin-left: 16px;
   }
 
-  .fnav .fnav_i .allbox .box .imgbox {
-    width: 90px;
-    height: 90px;
+  .fnav .fnav_i .allbox .box:last-child {
+    margin-right: 16px;
   }
 
   .info {
@@ -1449,11 +1531,6 @@ footer .footer_i .icon svg {
   .fun .fun_i .but {
     padding: 12px 24px;
     margin: 32px auto;
-  }
-
-  .fun .fun_i .fun_allbox {
-    grid-template-columns: 1fr;
-    gap: 40px;
   }
 
   .notice {

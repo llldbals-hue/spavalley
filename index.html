@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>워터파크 스파밸리</title>
   <link rel="shortcut icon" href="./favicon/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="./script/swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="./CSS/main.CSS">
   <link rel="stylesheet" href="./script/aos.css">
   <script src="https://kit.fontawesome.com/656147c9d3.js" crossorigin="anonymous"></script>
   <script src="./script/jquery-4.0.0.min.js"></script>
   <script src="./script/aos.js"></script>
+  <script src="./script/swiper/swiper-bundle.min.js"></script>
   <script src="./script/main.js"></script>
 </head>
 
@@ -20,9 +22,8 @@
     <div class="top-wrap">
       <div class="top">
         <div class="Family">
-          <a href="https://www.spavalley.co.kr/naturepark/">네이처파크</a>
-          <p> | </p>
-          <a href="https://forrest12.co.kr/">호텔 드 포레</a>
+          <a href="https://www.spavalley.co.kr/naturepark/" class="nature">네이처파크</a>
+          <a href="https://forrest12.co.kr/" class="hotel">호텔 드 포레</a>
         </div>
 
         <div class="login">
@@ -204,7 +205,6 @@
         <div class="time_r">
           <div class="text">
             <span>실내 09:00 ~ 18:00</span>
-            <p> | </p>
             <span>실외 09:00 ~ 17:00</span>
           </div>
 
@@ -217,10 +217,10 @@
   </main>
 
   <nav class="fnav">
-    <div class="fnav_i">
-      <div class="allbox">
+    <div class="fnav_i swiper">
+      <div class="allbox swiper-wrapper">
 
-        <div class="box">
+        <div class="box swiper-slide">
           <a href="#">
             <div class="imgbox">
               <img src="./img/main/pay.png" alt="pay">
@@ -229,7 +229,7 @@
           </a>
         </div>
 
-        <div class="box">
+        <div class="box swiper-slide">
           <a href="#">
             <div class="imgbox">
               <img src="./img/main/joy.png" alt="joy">
@@ -238,7 +238,7 @@
           </a>
         </div>
 
-        <div class="box">
+        <div class="box swiper-slide">
           <a href="./sub-page/attraction.html">
             <div class="imgbox">
               <img src="./img/main/park.png" alt="park">
@@ -247,7 +247,7 @@
           </a>
         </div>
 
-        <div class="box">
+        <div class="box swiper-slide">
           <a href="#">
             <div class="imgbox">
               <img src="./img/main/event.png" alt="event">
@@ -256,7 +256,7 @@
           </a>
         </div>
 
-        <div class="box">
+        <div class="box swiper-slide">
           <a href="#">
             <div class="imgbox">
               <img src="./img/main/car.png" alt="car">
@@ -281,6 +281,80 @@
       <img src="./img/main/info_bg.png" alt="info_bg">
     </div>
   </section>
+
+  <section class="fun">
+    <div class="fun_i">
+      <div class="Title">
+        <p>What’s Fun</p>
+        <h2>시원한 즐거움이 가득한 인기 시설!</h2>
+      </div>
+      <a href="./sub-page/attraction.html" class="but">
+        <span>더 많은 시설 보기</span>
+        <div class="icon">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </a>
+
+      <div class="fun_allbox swiper">
+        <div class="swiper-wrapper">
+          <div class="fun_box swiper-slide">
+            <div class="fun_img">
+              <a href="#"><img src="./img/attraction/img7.jpg" alt="item1"></a>
+            </div>
+            <p>슈퍼볼</p>
+          </div>
+
+          <div class="fun_box swiper-slide">
+            <div class="fun_img">
+              <a href="#"><img src="./img/attraction/img1.jpg" alt="item2"></a>
+            </div>
+            <p>유수풀</p>
+          </div>
+
+          <div class="fun_box swiper-slide">
+            <div class="fun_img">
+              <a href="#"><img src="./img/attraction/img2.jpg" alt="item3"></a>
+            </div>
+            <p>스피드 슬라이드</p>
+          </div>
+
+          <div class="fun_box swiper-slide">
+            <div class="fun_img">
+              <a href="#"><img src="./img/attraction/img8.jpg" alt="item4"></a>
+            </div>
+            <p>드래곤 슬라이드</p>
+          </div>
+
+          <div class="fun_box swiper-slide">
+            <div class="fun_img">
+              <a href="#"><img src="./img/attraction/wave_pool_1.jpg" alt="wave_pool_1"></a>
+            </div>
+            <p>파도풀</p>
+          </div>
+
+          <div class="fun_box swiper-slide">
+            <div class="fun_img">
+              <a href="#"><img src="./img/attraction/Jungle.jpg" alt="Jungle"></a>
+            </div>
+            <p>정글아쿠아</p>
+          </div>
+          <div class="fun_box swiper-slide">
+            <div class="fun_img">
+              <a href="#"><img src="./img/attraction/Bathe_Pool.jpg" alt="Bathe_Pool"></a>
+            </div>
+            <p>바데풀</p>
+          </div>
+          <div class="fun_box swiper-slide">
+            <div class="fun_img">
+              <a href="#"><img src="./img/attraction/kidpool.jpg" alt="kidpool"></a>
+            </div>
+            <p>키즈풀</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <section class="events">
     <div class="events_i">
@@ -368,54 +442,6 @@
               <img src="./img/main/student.png" alt="student">
             </div>
           </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="fun">
-    <div class="fun_i">
-      <div class="Title">
-        <p>What’s New</p>
-        <h2>워터파크 스파밸리를 두 배로 즐기자!</h2>
-      </div>
-      <a href="./sub-page/attraction.html" class="but">
-        <span>더 많은 시설 보기</span>
-        <div class="icon">
-          <i class="fa-solid fa-chevron-right"></i>
-        </div>
-      </a>
-
-      <div class="fun_allbox">
-        <div class="fun_box" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="1500">
-          <div class="fun_img">
-            <a href="#"><img src="./img/attraction/img7.jpg" alt="item1"></a>
-          </div>
-          <p>슈퍼볼</p>
-        </div>
-
-        <div class="fun_box" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="1500"
-          data-aos-delay="100">
-          <div class="fun_img">
-            <a href="#"><img src="./img/attraction/img1.jpg" alt="item2"></a>
-          </div>
-          <p>유수풀</p>
-        </div>
-
-        <div class="fun_box" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="1500"
-          data-aos-delay="200">
-          <div class="fun_img">
-            <a href="#"><img src="./img/attraction/img2.jpg" alt="item3"></a>
-          </div>
-          <p>스피드 슬라이드</p>
-        </div>
-
-        <div class="fun_box" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="1500"
-          data-aos-delay="300">
-          <div class="fun_img">
-            <a href="#"><img src="./img/attraction/img8.jpg" alt="item4"></a>
-          </div>
-          <p>드래곤 슬라이드</p>
         </div>
       </div>
     </div>
